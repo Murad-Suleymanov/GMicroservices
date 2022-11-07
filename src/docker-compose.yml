@@ -4,6 +4,9 @@ services:
   productdb:
     image: mongo
 
+  parceldb:
+        image: redis:alpine
+
   orderdb:
         image: mcr.microsoft.com/mssql/server:2017-latest
 
@@ -18,6 +21,12 @@ services:
     build:
       context: .
       dockerfile: Ordering/GMicroservices.Ordering.WebApi/Dockerfile
+
+  parcel.api:
+        image: ${DOCKER_REGISTRY-}parcelapi
+        build:
+          context: .
+          dockerfile: Presentation/Parcel/GMicroservices.Parcel.WebApi/Dockerfile
 
 volumes:
   mongo_data:
