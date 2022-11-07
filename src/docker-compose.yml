@@ -2,61 +2,61 @@ version: '3.4'
 
     services:
       catalogdb:
-            image: mongo
+        image: mongo
 
-          basketdb:
-            image: redis:alpine
+      parceldb:
+        image: redis:alpine
 
-          discountdb:
-            image: postgres
+      discountdb:
+        image: postgres
 
-          orderdb:
-            image: mcr.microsoft.com/mssql/server:2017-latest
+      orderdb:
+       image: mcr.microsoft.com/mssql/server:2017-latest
 
-          pgadmin:
-             image: dpage/pgadmin4
+      pgadmin:
+           image: dpage/pgadmin4
 
-          portainer:
-            image: portainer/portainer-ce
+      portainer:
+        image: portainer/portainer-ce
 
-          catalog.api:
-            image: ${DOCKER_REGISTRY-}productapi
-            build:
-              context: .
-              dockerfile: Product/GMicroservices.Product.WebApi/Dockerfile
+      product.api:
+        image: ${DOCKER_REGISTRY-}productapi
+        build:
+            context: .
+            dockerfile: Product/GMicroservices.Product.WebApi/Dockerfile
 
-          ordering.api:
-            image: ${DOCKER_REGISTRY-}orderingapi
-            build:
-              context: .
-              dockerfile: Ordering/GMicroservices.Ordering.WebApi/Dockerfile
+      ordering.api:
+        image: ${DOCKER_REGISTRY-}orderingapi
+        build:
+            context: .
+            dockerfile: Ordering/GMicroservices.Ordering.WebApi/Dockerfile
 
-          basket.api:
-            image: ${DOCKER_REGISTRY-}parcelapi
-            build:
-              context: .
-              dockerfile: Parcel/GMicroservices.Parcel.WebApi/Dockerfile
+      basket.api:
+        image: ${DOCKER_REGISTRY-}parcelapi
+        build:
+            context: .
+            dockerfile: Parcel/GMicroservices.Parcel.WebApi/Dockerfile
 
-          #discount.api:
-          #  image: ${DOCKER_REGISTRY-}discountapi
-          #  build:
-          #    context: .
-          #    dockerfile: Services/Discount/Discount.API/Dockerfile
+        #discount.api:
+        #  image: ${DOCKER_REGISTRY-}discountapi
+        #  build:
+        #    context: .
+        #    dockerfile: Services/Discount/Discount.API/Dockerfile
 
-          #discount.grpc:
-          #  image: ${DOCKER_REGISTRY-}discountgrpc
-          #  build:
-          #    context: .
-          #    dockerfile: Services/Discount/Discount.Grpc/Dockerfile
+        #discount.grpc:
+        #  image: ${DOCKER_REGISTRY-}discountgrpc
+        #  build:
+        #    context: .
+        #    dockerfile: Services/Discount/Discount.Grpc/Dockerfile
 
-          ordering.api:
-            image: ${DOCKER_REGISTRY-}orderingapi
-            build:
-              context: .
-              dockerfile: Ordering/GMicroservices.Ordering.WebApi/Dockerfile
+      ordering.api:
+        image: ${DOCKER_REGISTRY-}orderingapi
+        build:
+            context: .
+            dockerfile: Ordering/GMicroservices.Ordering.WebApi/Dockerfile
 
-        volumes:
-          mongo_data:
-          portainer_data:
-          postgres_data:
-          pgadmin_data:
+    volumes:
+        mongo_data:
+        portainer_data:
+        postgres_data:
+        pgadmin_data:
