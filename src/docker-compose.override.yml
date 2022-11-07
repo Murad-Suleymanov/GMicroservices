@@ -1,123 +1,20 @@
 version: '3.4'
 
 services:
-  order.api:
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://+:443;http://+:80
-    ports:
-      - "80"
-      - "443"
-    volumes:
-      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
-      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
-
-  productdb:
-    container_name: productdb
-    restart: always
-    ports:
-      - "27017:27017"
-    volumes:
-       - mongo_data:/data/db
-
-  parceldb:
-    container_name: parceldb
-    restart: always
-    ports:
-      - "6379:6379"
-
-  #discountdb:
-  #  container_name: discountdb
-  #  environment:
-  #    - POSTGRES_USER=admin
-  #    - POSTGRES_PASSWORD=admin1234
-  #    - POSTGRES_DB=DiscountDb
-  #  restart: always
-  #  ports:
-  #    - "5432:5432"
-  #  volumes:
-  #     - postgres_data:/var/lib/postgresql/data/
-
-  orderdb:
-    container_name: orderdb
-    environment:
-        SA_PASSWORD: "murad628"
-        ACCEPT_EULA: "Y"
-    restart: always
-    ports:
-        - "1433:1433"
-
-  pgadmin:
-    container_name: pgadmin
-    environment:
-        - PGADMIN_DEFAULT_EMAIL=admin@aspnetrun.com
-        - PGADMIN_DEFAULT_PASSWORD=admin1234
-    restart: always
-    ports:
-      - "5050:80"
-    volumes:
-      - pgadmin_data:/root/.pgadmin
-  
-
-  portainer:
-    container_name: portainer
-    restart: always
-    ports:
-      - "8080:8000"
-      - "9000:9000"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - portainer_data:/data
-
   product.api:
     container_name: product.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "DatabaseSettings:ConnectionString=mongodb://productdb:27017"
-    depends_on:
-     - productdb
+    #depends_on:
+    # - catalogdb
     ports:
       - "8000:80"
-
-  parcel.api:
-    container_name: parcel.api
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - "CacheSettings:ConnectionString=parceldb:6379"
-    depends_on:
-     - parceldb
-    ports:
-      - "8001:80"
-
-
-  #discount.api:
-  #  container_name: discount.api
-  #  environment:
-  #    - ASPNETCORE_ENVIRONMENT=Development
-  #    - "DatabaseSettings:ConnectionString=Server=discountdb;Port=5432;Database=DiscountDb;User Id=admin;Password=admin1234"
-  #  depends_on:
-  #   - discountdb
-  #  ports:
-  #    - "8002:80"
-
-
-  #discount.grpc:
-  #  container_name: discount.grpc
-  #  environment:
-  #    - ASPNETCORE_ENVIRONMENT=Development
-  #    - "DatabaseSettings:ConnectionString=Server=discountdb;Port=5432;Database=DiscountDb;User Id=admin;Password=admin1234"
-  #  depends_on:
-  #   - discountdb
-  #  ports:
-  #    - "8003:80"
-    
-
+  
   ordering.api:
     container_name: ordering.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "ConnectionStrings:OrderingConnectionString=Server=orderdb;Database=OrderDb;User Id=ms;Password=murad628"
-    depends_on:
-        - orderdb
+    #depends_on:
+    # - catalogdb
     ports:
-      - "8004:80"
+      - "8001:80"   

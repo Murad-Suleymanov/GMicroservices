@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using GMicroservices.Ordering.Application.Features.Orders.Commands.CheckoutOrder;
+using GMicroservices.Ordering.Domain.Entities;
 using Ordering.Application.Features.Orders.Commands.UpdateOrder;
 using Ordering.Application.Features.Orders.Queries.GetOrdersList;
 

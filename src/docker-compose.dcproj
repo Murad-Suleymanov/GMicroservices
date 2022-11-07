@@ -3,10 +3,10 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>32f18adf-a1d4-45a1-a8b9-520ba598f7bb</ProjectGuid>
+    <ProjectGuid>d9b65512-c999-47af-950d-d1ac8475425a</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
-    <DockerServiceName>gmicroservices.ordering.webapi</DockerServiceName>
+    <DockerServiceName>gmicroservices.product.webapi</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
     <None Include="docker-compose.override.yml">

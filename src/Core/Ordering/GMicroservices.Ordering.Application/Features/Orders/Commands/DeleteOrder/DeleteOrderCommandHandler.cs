@@ -1,10 +1,7 @@
 ﻿using AutoMapper;
+using GMicroservices.Ordering.Application.Contracts.Persistence;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using Ordering.Application.Contracts.Persistence;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Ordering.Application.Features.Orders.Commands.DeleteOrder
 {
