@@ -9,6 +9,15 @@ services:
     volumes:
        - mongo_data:/data/db
 
+  orderdb:
+    container_name: orderdb
+    environment:
+        SA_PASSWORD: "murad628"
+        ACCEPT_EULA: "Y"
+    restart: always
+    ports:
+        - "1401:1433"
+
   product.api:
     container_name: product.api
     environment:
@@ -22,7 +31,8 @@ services:
     container_name: ordering.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-    #depends_on:
-    # - catalogdb
+      - "ConnectionStrings:OrderingConnectionString=Server=orderdb;Database=OrderDb;User Id=ms;Password=murad628"
+    depends_on:
+     - orderdb
     ports:
       - "8001:80"   

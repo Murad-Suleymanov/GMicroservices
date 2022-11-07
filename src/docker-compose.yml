@@ -4,6 +4,9 @@ services:
   productdb:
     image: mongo
 
+  orderdb:
+        image: mcr.microsoft.com/mssql/server:2017-latest
+
   product.api:
     image: ${DOCKER_REGISTRY-}productapi
     build:
