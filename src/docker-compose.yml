@@ -19,11 +19,11 @@ version: '3.4'
           portainer:
             image: portainer/portainer-ce
 
-          #catalog.api:
-          #  image: ${DOCKER_REGISTRY-}productapi
-          #  build:
-          #    context: .
-          #    dockerfile: Services/Catalog/Catalog.API/Dockerfile
+          catalog.api:
+            image: ${DOCKER_REGISTRY-}productapi
+            build:
+              context: .
+              dockerfile: Product/GMicroservices.Product.WebApi/Dockerfile
 
           ordering.api:
             image: ${DOCKER_REGISTRY-}orderingapi
@@ -53,7 +53,7 @@ version: '3.4'
             image: ${DOCKER_REGISTRY-}orderingapi
             build:
               context: .
-              dockerfile: Services/Ordering/Ordering.API/Dockerfile
+              dockerfile: Ordering/GMicroservices.Ordering.WebApi/Dockerfile
 
         volumes:
           mongo_data:
