@@ -8,6 +8,7 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["Presentation/Parcel/GMicroservices.Parcel.WebApi/GMicroservices.Parcel.WebApi.csproj", "Presentation/Parcel/GMicroservices.Parcel.WebApi/"]
+COPY ["BuildingBlocks/EventBus.Messages/EventBus.Messages.csproj", "BuildingBlocks/EventBus.Messages/"]
 COPY ["Core/Parcel/GMicroservices.Parcel.Domain/GMicroservices.Parcel.Domain.csproj", "Core/Parcel/GMicroservices.Parcel.Domain/"]
 COPY ["Infrastructure/Parcel/GMicroservices.Parcel/GMicroservices.Parcel.csproj", "Infrastructure/Parcel/GMicroservices.Parcel/"]
 RUN dotnet restore "Presentation/Parcel/GMicroservices.Parcel.WebApi/GMicroservices.Parcel.WebApi.csproj"
