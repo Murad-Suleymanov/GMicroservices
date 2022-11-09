@@ -67,7 +67,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - "ApiSettings:CatalogUrl=http://product.api"
-      - "ApiSettings:BasketUrl=http://parcel.api"
+      - "ApiSettings:ParcelUrl=http://parcel.api"
       - "ApiSettings:OrderingUrl=http://ordering.api"
     depends_on:
       - product.api
