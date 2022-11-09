@@ -13,7 +13,7 @@ namespace GMicroservices.Parcel.Repositories
             _redisCache = redisCache;
         }
 
-        public async Task<ShoppingCart> GetBasket(string userName)
+        public async Task<ShoppingCart> GetParcel(string userName)
         {
             var basket = await _redisCache.GetStringAsync(userName);
 
@@ -23,14 +23,14 @@ namespace GMicroservices.Parcel.Repositories
             return JsonConvert.DeserializeObject<ShoppingCart>(basket);
         }
 
-        public async Task<ShoppingCart> UpdateBasket(ShoppingCart basket)
+        public async Task<ShoppingCart> UpdateParcel(ShoppingCart basket)
         {
             await _redisCache.SetStringAsync(basket.Username, JsonConvert.SerializeObject(basket));
 
-            return await GetBasket(basket.Username);
+            return await GetParcel(basket.Username);
         }
 
-        public async Task DeleteBasket(string userName)
+        public async Task DeleteParcel(string userName)
         {
             await _redisCache.RemoveAsync(userName);
         }

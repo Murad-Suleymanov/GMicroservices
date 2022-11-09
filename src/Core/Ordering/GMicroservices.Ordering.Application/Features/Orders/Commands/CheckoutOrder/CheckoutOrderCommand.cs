@@ -13,5 +13,8 @@ namespace GMicroservices.Ordering.Application.Features.Orders.Commands.CheckoutO
         public string EmailAddress { get; set; }
         public string AddressLine { get; set; }
         public string Country { get; set; }
+
+        //Delivery
+        public int? CurierId { get; set; }
     }
 }

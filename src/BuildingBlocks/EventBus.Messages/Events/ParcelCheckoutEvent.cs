@@ -1,10 +1,7 @@
-﻿using MediatR;
-
-namespace Ordering.Application.Features.Orders.Commands.UpdateOrder
+﻿namespace EventBus.Messages.Events
 {
-    public class UpdateOrderCommand : IRequest
+    public class ParcelCheckoutEvent : IntegrationBaseEvent
     {
-        public int Id { get; set; }
         public string UserName { get; set; }
         public decimal TotalPrice { get; set; }
 
@@ -14,10 +11,8 @@ namespace Ordering.Application.Features.Orders.Commands.UpdateOrder
         public string EmailAddress { get; set; }
         public string AddressLine { get; set; }
         public string Country { get; set; }
-        public string State { get; set; }
-        public string ZipCode { get; set; }
 
-        // Payment
+        // Delivery
         public int? CurierId { get; set; }
         public bool? IsDelivered { get; set; }
     }

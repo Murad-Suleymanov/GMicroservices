@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "GMicroservices.Parcel": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:50586;http://localhost:50591"
+    }
+  }
+}

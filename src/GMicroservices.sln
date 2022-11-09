@@ -49,11 +49,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{00
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{D9B65512-C999-47AF-950D-D1AC8475425A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMicroservices.Parcel.WebApi", "Presentation\Parcel\GMicroservices.Parcel.WebApi\GMicroservices.Parcel.WebApi.csproj", "{61685E15-BEBA-429C-94F8-37C54B71D2E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GMicroservices.Parcel.WebApi", "Presentation\Parcel\GMicroservices.Parcel.WebApi\GMicroservices.Parcel.WebApi.csproj", "{61685E15-BEBA-429C-94F8-37C54B71D2E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMicroservices.Parcel.Domain", "Core\Parcel\GMicroservices.Parcel.Domain\GMicroservices.Parcel.Domain.csproj", "{6D77553D-6ECE-43F1-A9CB-6EA723175B27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GMicroservices.Parcel.Domain", "Core\Parcel\GMicroservices.Parcel.Domain\GMicroservices.Parcel.Domain.csproj", "{6D77553D-6ECE-43F1-A9CB-6EA723175B27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMicroservices.Parcel", "Infrastructure\Parcel\GMicroservices.Parcel\GMicroservices.Parcel.csproj", "{16BA40CF-570F-4B21-A178-2683F9B80082}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GMicroservices.Parcel", "Infrastructure\Parcel\GMicroservices.Parcel\GMicroservices.Parcel.csproj", "{16BA40CF-570F-4B21-A178-2683F9B80082}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "User", "User", "{689F55F7-C081-4984-B653-4B66D9A1AE9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMicroservices.User.WebApi", "Presentation\User\GMicroservices.User.WebApi\GMicroservices.User.WebApi.csproj", "{C5E7B855-8C60-4990-9630-EC38F8A04C4D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{AF863AEF-5540-4D72-92DF-FFFE02F40F8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBus.Messages", "BuildingBlocks\EventBus.Messages\EventBus.Messages.csproj", "{6C5DA2E7-5F44-429D-9D9E-04B06760A29C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -109,6 +117,14 @@ Global
 		{16BA40CF-570F-4B21-A178-2683F9B80082}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16BA40CF-570F-4B21-A178-2683F9B80082}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16BA40CF-570F-4B21-A178-2683F9B80082}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5E7B855-8C60-4990-9630-EC38F8A04C4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5E7B855-8C60-4990-9630-EC38F8A04C4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5E7B855-8C60-4990-9630-EC38F8A04C4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5E7B855-8C60-4990-9630-EC38F8A04C4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C5DA2E7-5F44-429D-9D9E-04B06760A29C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C5DA2E7-5F44-429D-9D9E-04B06760A29C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C5DA2E7-5F44-429D-9D9E-04B06760A29C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C5DA2E7-5F44-429D-9D9E-04B06760A29C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -138,6 +154,9 @@ Global
 		{61685E15-BEBA-429C-94F8-37C54B71D2E3} = {05B99022-81AF-4DE1-A3DC-426C3EB9F05D}
 		{6D77553D-6ECE-43F1-A9CB-6EA723175B27} = {D2AC423C-10D6-4B76-ADA4-EFAD6AC03604}
 		{16BA40CF-570F-4B21-A178-2683F9B80082} = {EDE63BA7-8BA5-4C44-9EBE-4530A2BBE288}
+		{689F55F7-C081-4984-B653-4B66D9A1AE9E} = {95732A19-CB9A-4D3F-888D-B65C6FEDA8D2}
+		{C5E7B855-8C60-4990-9630-EC38F8A04C4D} = {689F55F7-C081-4984-B653-4B66D9A1AE9E}
+		{6C5DA2E7-5F44-429D-9D9E-04B06760A29C} = {AF863AEF-5540-4D72-92DF-FFFE02F40F8F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {527489A9-5AA0-4F58-984D-A025A34D6B5B}

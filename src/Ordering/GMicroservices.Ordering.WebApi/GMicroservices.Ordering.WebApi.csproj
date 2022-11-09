@@ -11,6 +11,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MassTransit" Version="8.0.8" />
+    <PackageReference Include="MassTransit.AspNetCore" Version="7.3.1" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="8.0.8" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="2.1.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational.Design" Version="1.1.6" />
@@ -19,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\BuildingBlocks\EventBus.Messages\EventBus.Messages.csproj" />
     <ProjectReference Include="..\..\Core\Ordering\GMicroservices.Ordering.Application\GMicroservices.Ordering.Application.csproj" />
     <ProjectReference Include="..\..\Core\Ordering\GMicroservices.Ordering.Domain\GMicroservices.Ordering.Domain.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Ordering\GMicroservices.Ordering.DataAccess\GMicroservices.Ordering.csproj" />

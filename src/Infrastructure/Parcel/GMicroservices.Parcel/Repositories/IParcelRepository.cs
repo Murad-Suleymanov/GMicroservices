@@ -4,8 +4,8 @@ namespace GMicroservices.Parcel.Repositories
 {
     public interface IParcelRepository
     {
-        Task<ShoppingCart> GetBasket(string userName);
-        Task<ShoppingCart> UpdateBasket(ShoppingCart basket);
-        Task DeleteBasket(string userName);
+        Task<ShoppingCart> GetParcel(string userName);
+        Task<ShoppingCart> UpdateParcel(ShoppingCart basket);
+        Task DeleteParcel(string userName);
     }
 }

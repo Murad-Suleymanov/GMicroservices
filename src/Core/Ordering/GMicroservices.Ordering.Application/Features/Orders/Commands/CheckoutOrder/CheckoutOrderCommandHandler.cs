@@ -37,7 +37,7 @@ namespace GMicroservices.Ordering.Application.Features.Orders.Commands.CheckoutO
 
         private async Task SendMail(Order order)
         {
-            var email = new Email() { To = "ezozkme@gmail.com", Body = $"Order was created.", Subject = "Order was created" };
+            var email = new Email() { To = "Muradmurad@gmail.com", Body = $"Order was created.", Subject = "Order was created" };
 
             try
             {

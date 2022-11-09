@@ -16,6 +16,7 @@ namespace GMicroservices.Ordering.Domain.Entities
         public string Country { get; set; }
 
         //Delivery
-        public int CurierId { get; set; }
+        public int? CurierId { get; set; }
+        public bool? IsDelivered { get; set; }
     }
 }

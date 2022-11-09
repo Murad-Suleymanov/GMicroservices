@@ -1,10 +1,13 @@
-﻿using MediatR;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Ordering.Application.Features.Orders.Commands.UpdateOrder
+namespace GMicroservices.Parcel.Domain.Entities
 {
-    public class UpdateOrderCommand : IRequest
+    public class ParcelCheckout
     {
-        public int Id { get; set; }
         public string UserName { get; set; }
         public decimal TotalPrice { get; set; }
 
@@ -17,8 +20,8 @@ namespace Ordering.Application.Features.Orders.Commands.UpdateOrder
         public string State { get; set; }
         public string ZipCode { get; set; }
 
-        // Payment
+        // Delivery
         public int? CurierId { get; set; }
-        public bool? IsDelivered { get; set; }
+        public bool? IsAnswered { get; set; }
     }
 }
