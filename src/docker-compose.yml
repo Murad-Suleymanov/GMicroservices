@@ -7,7 +7,8 @@ services:
   parceldb:
         image: redis:alpine
 
-  
+  userdb:
+        image: postgres
 
   orderdb:
         image: mcr.microsoft.com/mssql/server:2017-latest
@@ -33,6 +34,18 @@ services:
         context: .
         dockerfile: Presentation/Parcel/GMicroservices.Parcel.WebApi/Dockerfile
 
+   user.api:
+     image: ${DOCKER_REGISTRY-}userapi
+     build:
+        context: .
+        dockerfile: Presentation/User/GMicroservices.User.WebApi/Dockerfile
+
+   user.grpc:
+     image: ${DOCKER_REGISTRY-}usergrpc
+     build:
+     context: .
+     dockerfile: Presentation/User/GMicroservices.User.Grpc/Dockerfile
+
   shopping.aggregator:
     image: ${DOCKER_REGISTRY-}shoppingaggregator
     build:
@@ -47,3 +60,4 @@ services:
 
 volumes:
   mongo_data:
+  postgres_data:

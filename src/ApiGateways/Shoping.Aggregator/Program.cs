@@ -13,6 +13,10 @@ builder.Services.AddHttpClient<IParcelService, ParcelService>(c =>
 builder.Services.AddHttpClient<IOrderService, OrderService>(c =>
     c.BaseAddress = new Uri(builder.Configuration["ApiSettings:OrderingUrl"]));
 
+builder.Services.AddHttpClient<IUserService, UserService>(c =>
+    c.BaseAddress = new Uri(builder.Configuration["ApiSettings:UserUrl"]));
+
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

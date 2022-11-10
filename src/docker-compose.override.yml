@@ -24,6 +24,18 @@ services:
     ports:
         - "1401:1433"
 
+  userdb:
+    container_name: userdb
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin1234
+      - POSTGRES_DB=UserDB
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+       - postgres_data:/var/lib/postgresql/data/
+
   rabbitmq:
     container_name: rabbitmq
     restart: always
@@ -51,6 +63,27 @@ services:
     ports:
       - "8001:80"   
 
+  user.api:
+    container_name: user.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "DatabaseSettings:ConnectionString=Server=userdb;Port=5432;Database=UserDB;User Id=admin;Password=admin1234"
+    depends_on:
+     - userdb
+    ports:
+      - "8007:80"
+
+
+  user.grpc:
+    container_name: user.grpc
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "DatabaseSettings:ConnectionString=Server=userdb;Port=5432;Database=UserDB;User Id=admin;Password=admin1234"
+    depends_on:
+     - userdb
+    ports:
+      - "8008:80"
+
   parcel.api:
     container_name: parcel.api
     environment:
@@ -66,13 +99,15 @@ services:
     container_name: shopping.aggregator
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "ApiSettings:CatalogUrl=http://product.api"
+      - "ApiSettings:ProductUrl=http://product.api"
       - "ApiSettings:ParcelUrl=http://parcel.api"
       - "ApiSettings:OrderingUrl=http://ordering.api"
+      - "ApiSettings:UserUrl=http://user.api"
     depends_on:
       - product.api
       - parcel.api
       - ordering.api
+      - user.api
     ports:
       - "8005:80"
 
@@ -84,5 +119,6 @@ services:
         - product.api
         - parcel.api
         - ordering.api
+        - user.api
     ports:
       - "8010:80"

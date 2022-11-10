@@ -7,14 +7,16 @@ using System.Net;
 
 namespace GMicroservices.User.WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
-        public UserController(IUserService userService)
+        private readonly IJwtService _jwtService;
+        public UserController(IUserService userService, IJwtService jwtService)
         {
             _userService = userService;
+            _jwtService = jwtService;
         }
 
         [HttpGet("{userType}", Name = "GetUsers")]
@@ -32,5 +34,13 @@ namespace GMicroservices.User.WebApi.Controllers
             await _userService.AddUser(user);
             return NoContent();
         }
+
+        [HttpGet("{userId}/token")]
+        public async Task<IActionResult> GetToken(int userId)
+        {
+            await _jwtService.GetJwt("empty");
+            return NoContent();
+        }
+
     }
 }

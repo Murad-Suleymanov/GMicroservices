@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.40.0" />
     <PackageReference Include="MassTransit" Version="8.0.8" />
     <PackageReference Include="MassTransit.AspNetCore" Version="7.3.1" />
     <PackageReference Include="MassTransit.RabbitMQ" Version="8.0.8" />
@@ -26,6 +27,12 @@
     <ProjectReference Include="..\..\Core\Ordering\GMicroservices.Ordering.Application\GMicroservices.Ordering.Application.csproj" />
     <ProjectReference Include="..\..\Core\Ordering\GMicroservices.Ordering.Domain\GMicroservices.Ordering.Domain.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Ordering\GMicroservices.Ordering.DataAccess\GMicroservices.Ordering.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="..\..\Presentation\User\GMicroservices.User.Grpc\Protos\user.proto" GrpcServices="Client">
+      <Link>Protos\user.proto</Link>
+    </Protobuf>
   </ItemGroup>
 
 </Project>

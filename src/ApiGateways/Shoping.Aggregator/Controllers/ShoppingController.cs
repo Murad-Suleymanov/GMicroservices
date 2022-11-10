@@ -12,12 +12,14 @@ namespace Shoping.Aggregator.Controllers
         private readonly IProductService _productService;
         private readonly IParcelService _parcelService;
         private readonly IOrderService _orderService;
+        private readonly IUserService _userService;
 
-        public ShoppingController(IProductService productService, IParcelService parcelService, IOrderService orderService)
+        public ShoppingController(IProductService productService, IParcelService parcelService, IOrderService orderService, IUserService userService)
         {
             _productService = productService ?? throw new ArgumentNullException(nameof(productService));
             _parcelService = parcelService ?? throw new ArgumentNullException(nameof(parcelService));
             _orderService = orderService ?? throw new ArgumentNullException(nameof(orderService));
+            _userService = userService ?? throw new ArgumentNullException(nameof(userService));
         }
 
         [HttpGet("{userName}", Name = "GetShopping")]

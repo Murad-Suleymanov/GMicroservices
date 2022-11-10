@@ -94,6 +94,19 @@
       ],
       "UpstreamPathTemplate": "/Order/{userName}",
       "UpstreamHttpMethod": [ "GET" ]
+    },
+    // User api
+    {
+      "DownstreamPathTemplate": "/api/v1/User/{userId}/token",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "8007"
+        }
+      ],
+      "UpstreamPathTemplate": "/Order/{userId}/token",
+      "UpstreamHttpMethod": [ "GET" ]
     }
   ],
   "GlobalConfiguration": {
