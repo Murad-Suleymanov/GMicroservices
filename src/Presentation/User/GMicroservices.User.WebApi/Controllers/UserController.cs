@@ -23,6 +23,10 @@ namespace GMicroservices.User.WebApi.Controllers
         [ProducesResponseType(typeof(ServiceResponse<GetUsersResponseDto>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetUsers(int userType)
         {
+            if(userType > 3)
+            {
+                return BadRequest();
+            }
             var response = await _userService.GetUsers(userType);
             return Ok(response);
         }
