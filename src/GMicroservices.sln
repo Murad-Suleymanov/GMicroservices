@@ -81,6 +81,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GMicroservices.User.Applica
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GMicroservices.Ordering.WebApi", "Presentation\Ordering\GMicroservices.Ordering.WebApi\GMicroservices.Ordering.WebApi.csproj", "{019CFC68-A8D2-49B5-986B-9ED566711F10}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{0898BF89-8069-43B9-A393-0FA5EF7C468B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

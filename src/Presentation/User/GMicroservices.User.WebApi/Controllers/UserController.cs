@@ -29,7 +29,7 @@ namespace GMicroservices.User.WebApi.Controllers
 
         [HttpPost]
         [ProducesResponseType(typeof(ServiceResponse<GenericAddingDto>), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> CreateDiscount([FromBody] UserRegDto user)
+        public async Task<IActionResult> CreateUser([FromBody] UserRegDto user)
         {
             await _userService.AddUser(user);
             return NoContent();
