@@ -21,10 +21,10 @@ namespace GMicroservices.User.Grpc.Services
         {
             var isExist = await _userService.ExistUser(request.UserId, request.UserType);
 
-            return Task.FromResult(new GetExistUserResponse
+            return new GetExistUserResponse
             {
-                IsExist = isExist
-            });
+                IsExist = isExist.Data.IsExist
+            };
         }
     }
 }

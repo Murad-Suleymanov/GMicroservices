@@ -4,7 +4,7 @@ namespace GMicroservices.User.WebApi.Extensions
 {
     public static class HostExtensions
     {
-        public static ConfigureHostBuilder MigrateDatabase<TContext>(this IHost host, int? retry = 0)
+        public static IHost MigrateDatabase<TContext>(this IHost host, int? retry = 0)
         {
             int retryForAvailability = retry.Value;
 

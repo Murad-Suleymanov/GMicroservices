@@ -7,14 +7,10 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["Ordering/GMicroservices.Ordering.WebApi/GMicroservices.Ordering.WebApi.csproj", "Ordering/GMicroservices.Ordering.WebApi/"]
-COPY ["BuildingBlocks/EventBus.Messages/EventBus.Messages.csproj", "BuildingBlocks/EventBus.Messages/"]
-COPY ["Core/Ordering/GMicroservices.Ordering.Application/GMicroservices.Ordering.Application.csproj", "Core/Ordering/GMicroservices.Ordering.Application/"]
-COPY ["Core/Ordering/GMicroservices.Ordering.Domain/GMicroservices.Ordering.Domain.csproj", "Core/Ordering/GMicroservices.Ordering.Domain/"]
-COPY ["Infrastructure/Ordering/GMicroservices.Ordering.DataAccess/GMicroservices.Ordering.csproj", "Infrastructure/Ordering/GMicroservices.Ordering.DataAccess/"]
-RUN dotnet restore "Ordering/GMicroservices.Ordering.WebApi/GMicroservices.Ordering.WebApi.csproj"
+COPY ["Presentation/Ordering/GMicroservices.Ordering.WebApi/GMicroservices.Ordering.WebApi.csproj", "Presentation/Ordering/GMicroservices.Ordering.WebApi/"]
+RUN dotnet restore "Presentation/Ordering/GMicroservices.Ordering.WebApi/GMicroservices.Ordering.WebApi.csproj"
 COPY . .
-WORKDIR "/src/Ordering/GMicroservices.Ordering.WebApi"
+WORKDIR "/src/Presentation/Ordering/GMicroservices.Ordering.WebApi"
 RUN dotnet build "GMicroservices.Ordering.WebApi.csproj" -c Release -o /app/build
 
 FROM build AS publish
