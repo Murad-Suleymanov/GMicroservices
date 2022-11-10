@@ -1,6 +1,11 @@
+using GMicroservices.User.WebApi.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+var host = builder.Build();
+host.MigrateDatabase<Program>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
