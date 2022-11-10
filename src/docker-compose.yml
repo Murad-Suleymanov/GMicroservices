@@ -5,10 +5,10 @@ services:
     image: mongo
 
   parceldb:
-        image: redis:alpine
+     image: redis:alpine
 
   userdb:
-        image: postgres
+     image: postgres
 
   orderdb:
         image: mcr.microsoft.com/mssql/server:2017-latest
@@ -26,31 +26,31 @@ services:
     image: ${DOCKER_REGISTRY-}orderingapi
     build:
       context: .
-      dockerfile: Ordering/GMicroservices.Ordering.WebApi/Dockerfile
-
+      dockerfile: Presentation/Ordering/GMicroservices.Ordering.WebApi/Dockerfile
+      
   parcel.api:
     image: ${DOCKER_REGISTRY-}parcelapi
     build:
         context: .
         dockerfile: Presentation/Parcel/GMicroservices.Parcel.WebApi/Dockerfile
 
-   user.api:
+  user.api:
      image: ${DOCKER_REGISTRY-}userapi
      build:
         context: .
         dockerfile: Presentation/User/GMicroservices.User.WebApi/Dockerfile
 
-   user.grpc:
+  user.grpc:
      image: ${DOCKER_REGISTRY-}usergrpc
      build:
-     context: .
-     dockerfile: Presentation/User/GMicroservices.User.Grpc/Dockerfile
+       context: .
+       dockerfile: Presentation/User/GMicroservices.User.Grpc/Dockerfile
 
   shopping.aggregator:
     image: ${DOCKER_REGISTRY-}shoppingaggregator
     build:
       context: .
-      dockerfile: ApiGateways/Shopping.Aggregator/Dockerfile
+      dockerfile: ApiGateways/Shoping.Aggregator/Dockerfile
 
   ocelotapigw:
     image: ${DOCKER_REGISTRY-}ocelotapigw

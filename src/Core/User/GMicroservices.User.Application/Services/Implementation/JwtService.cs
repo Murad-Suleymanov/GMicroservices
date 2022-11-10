@@ -7,7 +7,11 @@ using System.Threading.Tasks;
 
 namespace GMicroservices.User.Application.Services.Implementation
 {
-    public class JwtService: IJwtService
+    public class JwtService : IJwtService
     {
+        public Task<string> GetJwt(string jwt)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
