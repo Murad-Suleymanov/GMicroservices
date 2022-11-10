@@ -26,16 +26,22 @@ services:
       dockerfile: Ordering/GMicroservices.Ordering.WebApi/Dockerfile
 
   parcel.api:
-        image: ${DOCKER_REGISTRY-}parcelapi
-        build:
-          context: .
-          dockerfile: Presentation/Parcel/GMicroservices.Parcel.WebApi/Dockerfile
+    image: ${DOCKER_REGISTRY-}parcelapi
+    build:
+        context: .
+        dockerfile: Presentation/Parcel/GMicroservices.Parcel.WebApi/Dockerfile
 
   shopping.aggregator:
     image: ${DOCKER_REGISTRY-}shoppingaggregator
     build:
       context: .
       dockerfile: ApiGateways/Shopping.Aggregator/Dockerfile
+
+  ocelotapigw:
+    image: ${DOCKER_REGISTRY-}ocelotapigw
+    build:
+      context: .
+      dockerfile: ApiGateways/OcelotApiGw/Dockerfile
 
 volumes:
   mongo_data:

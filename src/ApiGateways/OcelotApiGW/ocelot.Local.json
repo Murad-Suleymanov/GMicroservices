@@ -1,0 +1,102 @@
+{
+  "Routes": [
+    //Product API
+    {
+      "DownstreamPathTemplate": "/api/v1/Product",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "8000"
+        }
+      ],
+      "UpstreamPathTemplate": "/Product",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Product/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "8000"
+        }
+      ],
+      "UpstreamPathTemplate": "/Product/{id}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Product/GetProductByCategory/{category}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "8000"
+        }
+      ],
+      "UpstreamPathTemplate": "/Product/GetProductByCategory/{category}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    //Parcel API
+    {
+      "DownstreamPathTemplate": "/api/v1/Parcel/{userName}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "8001"
+        }
+      ],
+      "UpstreamPathTemplate": "/Parcel/{userName}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Parcel",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "8001"
+        }
+      ],
+      "UpstreamPathTemplate": "/Parcel",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Parcel/Checkout",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "8001"
+        }
+      ],
+      "UpstreamPathTemplate": "/Parcel/Checkout",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "3s",
+        "PeriodTimespan": 1,
+        "Limit": 1
+      }
+    },
+    //Order API
+    {
+      "DownstreamPathTemplate": "/api/v1/Order/{userName}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "8004"
+        }
+      ],
+      "UpstreamPathTemplate": "/Order/{userName}",
+      "UpstreamHttpMethod": [ "GET" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5010"
+  }
+}
